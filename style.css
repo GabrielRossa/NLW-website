@@ -1,0 +1,650 @@
+/*RESET DO NAVEGADOR*/
+*{
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/*VARIABLES*/
+:root{
+    --color1: #0e0b16;
+    --color2: #a239ca;
+    --color3: #4717f6;
+    --color4: #e7dfdd;
+}
+
+/*BASE*/
+img{
+    width: 100%;
+    height: auto;
+}
+
+body{
+    font: 400 1rem 'DM Sans', sans-serif;
+    color: var(--color4);
+    background: var(--color1);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.625rem;
+}
+
+.title{
+    font: 700 1.875rem 'Poppins', sans-serif;
+    color: var(--color4);
+    -webkit-font-smoothing: auto;
+    margin-bottom: 1rem;
+}
+
+.subtitle{
+    font: 700 1.5rem 'DM Sans', sans-serif;
+    color: var(--color4);
+    -webkit-font-smoothing: auto;
+}
+
+.button{
+   color: var(--color1);
+   font: 700 1rem 'Poppins', sans-serif;
+   background-color: var(--color3);
+   height: 3.5rem;
+   display: inline-flex;
+   align-items: center;
+   padding: 1rem 2rem;
+   border-radius: 0.25rem;
+   transition: background 0.5s;
+   text-align: center;
+}
+
+.divider-1{
+    height: 1px;
+    background: linear-gradient(
+        270deg,
+        var(--color2) 0%,
+        var(--color1) 100%
+    ); 
+}
+
+.divider-2{
+    height: 1px;
+    background: linear-gradient(
+        270deg,
+        var(--color1) 0%,
+        var(--color2) 100%
+    ); 
+}
+
+.button:hover{
+    background: var(--color4);
+}
+
+/*LAYOUT*/
+#header{
+    border-bottom: 1px solid var(--color2);
+    margin-bottom: 2rem;
+    display: flex;
+    
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color: var(--color1);
+    top: 0;
+    left: 0;
+}
+
+#header.scroll{
+    box-shadow: 0px 0px 12px var(--color2);
+}
+
+main{
+    margin-top: 3rem;
+}
+
+/*LOGO*/
+
+.logo{
+    font: 700 1.875rem 'Poppins', sans-serif;
+    color: var(--color4);
+    font-size: 1.31rem;
+}
+
+#dev{
+    color: var(--color3);
+}
+
+/*NAVIGATION*/
+
+nav{
+    height: 4.5rem; /*O Rem é uma unidade relacionada a 16px, usada para fazer sites responsivos*/
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+nav ul li a{
+    transition: color 0.5s;
+    position: relative;
+}
+
+nav ul li a:hover{
+    color: var(--color3);
+}
+
+nav ul li a::after{
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: var(--color3);
+
+    position: absolute;
+    left: 0;
+    bottom: -1.5rem;
+
+    transition: width 0.5s;
+}
+
+nav ul li a:hover::after{
+    width: 100%;
+}
+
+nav .menu {
+    visibility: hidden;
+    opacity: 0;
+    top: -20rem;
+    transition: 0.3s;
+}
+
+nav .menu ul{
+    display: none;
+}
+
+nav.show .menu{
+    visibility: visible;
+    opacity: 1;
+
+    background: var(--color1);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: grid;
+    place-content: center;
+    text-align: center;
+}
+
+nav.show .menu ul{
+    display: grid;
+}
+
+nav.show ul.grid{
+    gap: 4rem;
+}
+
+/*toggle menu*/
+.toggle{
+    color: var(--color3);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+nav .icon-x{
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    right: 1.5rem;
+    top: -1.5rem;
+
+    transition: 0.3s;
+}
+
+nav.show div.icon-x{
+    visibility: visible;
+    opacity: 1;
+    top: 1.5rem;
+}
+
+nav .icon-menu{
+    visibility: visible;
+    opacity: 1;
+}
+
+.container{
+    width: 100%;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.grid{
+    display: grid;
+    gap: 2rem;
+}
+
+.section{
+    padding: 5rem 0;
+    overflow: hidden;
+}
+
+/*HOME*/
+
+#home .container{
+    margin: 0;
+}
+
+#home .image {
+    position: relative;
+}
+
+#home .image::before{
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: var(--color3);
+    opacity: 0.8;
+    position: absolute;
+    top: -16.8%;
+    left: 16.8%;
+    z-index: 0;
+}
+
+#home .image img{
+    position: relative;
+    right: 2.93rem;
+}
+
+#home .image img, #home .image::before {
+    border-radius: 0.25rem;
+}
+
+#home .text{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    text-align: center;
+}
+
+#home .text p{
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+/*SOBRE*/
+
+#about .container{
+    margin: 0;
+}
+
+#about .image {
+    position: relative;
+}
+
+#about .image::before{
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: var(--color3);
+    opacity: 0.8;
+    position: absolute;
+    top: -8.3%;
+    left: -33%;
+    z-index: 0;
+}
+
+#about .image img{
+    position: relative;
+}
+
+#about .image img, #about .image::before {
+    border-radius: 0.25rem;
+}
+
+#about .text{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    text-align: justify;
+}
+
+#about .text p{
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+/*Serviços*/
+
+#services .grid{
+    gap: 1.5rem;
+}
+
+#services .container{
+    margin: 0;
+}
+
+#services .icon{
+    font-size: 5rem;
+    margin-top: 3.625rem;
+    margin-bottom: 1.5rem;
+}
+
+#services .text{
+    margin-bottom: 2.5rem;
+}
+
+#services .text,  .service-type{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    text-align: left;
+}
+
+#services .service-type{
+    text-align: center;
+    box-shadow: 0px 0px 12px var(--color3);
+    border-bottom: .25rem solid var(--color3);
+    border-radius: .25rem .25rem 0 0;
+}
+
+#services .service-type p{
+    margin: 2rem;
+    margin-top: 1rem;
+}
+
+/*Depoimentos*/
+#testimonials{
+    background: var(--color1);
+}
+
+#testimonials .container {
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#testimonials header{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-bottom: 0rem;
+}
+
+#testimonials blockquote{
+    padding: 2rem;
+    box-shadow: 0px 0px 12px var(--color3);
+    border-radius: 0.25rem;
+
+}
+
+#testimonials blockquote p{
+    position: relative;
+    text-indent: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+#testimonials blockquote p span{
+    font: 700 2rem serif;
+    color: #4717f6;
+    position: absolute;
+    top: -0.5rem;
+    left: -1.2rem;
+}
+
+#testimonials cite{
+    display: flex;
+    align-items: center;
+    font-style: italic;
+}
+
+#testimonials cite img{
+    height: 2rem;  
+    width: 2rem; 
+    object-fit: cover;
+    clip-path: circle();
+    margin-right: 0.5rem; 
+}
+
+/*Swiper*/
+.swiper-slide {
+    height: auto;
+    padding: 4rem 1.5rem;
+    margin: auto;
+}
+  
+.swiper-pagination-bullet {
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--color4);
+}
+  
+.swiper-pagination-bullet-active {
+  background: var(--color3);
+}
+
+/*Contato*/
+#contact .grid{
+    gap: 4rem;
+}
+
+#contact .container{    
+    margin: 0;
+}
+
+#contact .text{
+    margin: auto 1.5rem ;
+}
+
+#contact .text p{
+    margin-bottom: 2rem;
+}
+
+#contact .icon-whatsapp, ul li i{
+    font-size: 1.5rem;
+    margin-right: .625rem;
+}
+
+#contact .container .grid{
+    gap: 2rem;
+    margin: auto 1.5rem;
+}
+
+#contact ul li{
+    display: flex;
+    align-items: center;
+}
+
+#contact ul li i{
+    color: var(--color3);
+}
+
+/*Footer*/
+footer{
+    background-color: var(--color3);
+    line-height: 2rem;
+    padding: 0 1.5rem;
+}
+
+footer .section{
+    padding: 4rem 0;
+}
+
+footer #dev{
+    color: #e7dfdd;
+    margin-bottom: 0.75rem;
+}
+
+footer .logo{
+    color: #0e0b16;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+footer ul{
+    display: flex;
+    margin-top: 2rem;
+}
+
+footer ul li a{
+    color: var(--color4);
+    font-size: 1.5rem;
+    margin-right: 2rem;
+    transition: 0.5s;
+    display: inline-block;
+}
+
+footer ul li a:hover{
+    transform: translateY(-5px);
+}
+
+/*RESPONSIVO*/
+/*EXTRA LARGE: >1200*/
+@media(min-width: 1200px){
+    .section{
+        padding: 9.5rem 10.5rem 10.75rem 7.6875rem;
+    }
+
+    .button{
+        height: 3.125rem;
+    }
+
+    .title{
+        font: 700 2.5rem 'Poppins', sans-serif;
+        color: var(--color4);
+        -webkit-font-smoothing: auto;
+        margin-bottom: 1rem;
+    }
+    /*Header*/    
+    nav .menu{
+        opacity: 1;
+        visibility: visible;
+        top: 0;
+    }
+
+    nav .menu ul{
+        display: flex;
+        gap: 2rem;
+    }
+
+    nav .menu ul li a.title{
+        font: 400 1rem 'Poppins', sans-serif;
+    }
+
+    nav.show div.icon-x{
+        display: none;
+    }
+
+    nav div.icon-menu{
+        display: none;
+    }
+
+    /*Home*/    
+    #home .container{
+        grid-auto-flow: column;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 70rem;
+    }
+    
+    #home .image{
+        order: 1;
+    }
+
+    #home .text{
+        order: 0;
+        max-width: 24rem;
+        text-align: left;
+    }
+
+    /*About*/    
+    #about .container{
+        grid-auto-flow: column;
+        margin: 12rem 0;
+        align-items: center;
+    }
+
+    #about {
+        padding: 0;
+    }
+
+    #about .text{
+        text-align: left;
+        margin-right: 7.5rem;
+    }
+
+    #about .image{
+        width: 100%;
+    }
+
+    #about .image::before{
+        height: 10rem;
+    }
+
+    /*Services*/    
+    #services {
+        padding: 0;
+    }
+
+    #services .text{
+        text-align: center;
+        margin-top: 10rem;
+        margin-bottom: 4rem;
+        margin: 10rem auto 4rem auto;
+        max-width: 32.5rem;
+    }
+
+    #services .container{
+        max-width: 70rem;
+        grid-auto-flow: column;
+        margin: 0 auto 10rem auto;
+    }
+
+    /*Testimonials*/    
+
+    #testimonials{
+        padding-bottom: 0;
+        margin-bottom: 10rem;
+    }
+
+    #testimonials .title{
+        max-width: 30rem;
+        text-align: center;
+        margin: auto;
+    }
+
+    /*Contact*/    
+
+    #contact .container{
+        grid-auto-flow: column;
+    }
+
+    /*Footer*/    
+    footer .section{
+        padding: 3.75rem;
+    }
+    
+    footer .container{
+        grid-auto-flow: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+    }
+
+    footer .logo{
+        font-size: 2rem;
+    }
+
+    footer ul{
+        margin: 0;
+    }
+
+}
+/*SUPER LARGE: >1023*/
+/*LARGE: >992*/
+@media(min-width: 992px){
+    
+}
+/*MEDIUM: 767*/
